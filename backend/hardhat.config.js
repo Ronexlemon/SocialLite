@@ -6,11 +6,11 @@ const KEY = process.env.PRIVATE_KEY;
 module.exports = {
   solidity: "0.8.17",
   networks:{
-    apothem:{
-      url: "https://rpc.apothem.network",
+    xinfin:{
+      url: "https://erpc.apothem.network",
       accounts: [KEY],
-      chainId: 51,
+      
 
     },
-  }
+  },
 };
