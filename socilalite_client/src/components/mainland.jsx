@@ -1,10 +1,13 @@
 import React from "react";
+import SideBar from "./SideBar";
 
 const MainLand = ()=>{
     return(
-<div>
-    
-</div>
+<SideBar/>
+
+
+
+
 
     )
     

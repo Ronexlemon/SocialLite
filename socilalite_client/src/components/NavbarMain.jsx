@@ -1,10 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const NavBarLanding = () =>{
+const NavBarMain = () =>{
     const navigate = useNavigate();
     return(
-        <div className="flex bg-blue-200 justify-around items-center  h-15   w-full">
+        <div className="flex bg-red-400 justify-around items-center  h-15   w-full">
             <div></div>
         
             <div>
@@ -18,4 +18,4 @@ const NavBarLanding = () =>{
 
 }
 
-export default NavBarLanding;
+export default NavBarMain;

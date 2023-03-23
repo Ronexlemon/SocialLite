@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import LandPage from './Pages/LandingPage'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Main from './Pages/Main'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandPage/>} />
         <Route path="/home" element={<LandPage/>} />
+        <Route path="/main" element={<Main/>} />
         
       </Routes>
     </Router>
