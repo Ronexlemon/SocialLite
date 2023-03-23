@@ -1,6 +1,6 @@
 import React from "react";
 
-const Home = ()=>{
+const Main = ()=>{
 return(
     <div className="bg-blue-200 h-screen ">
         
@@ -8,4 +8,4 @@ return(
     </div>
 )
 }
-export default Home;
+export default Main;
