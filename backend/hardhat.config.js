@@ -8,7 +8,7 @@ module.exports = {
   networks:{
     apothem:{
       url: "https://rpc.apothem.network",
-      accounts: [],
+      accounts: [KEY],
       chainId: 51,
 
     },
