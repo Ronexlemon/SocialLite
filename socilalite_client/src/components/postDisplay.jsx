@@ -23,7 +23,7 @@ const PostDisplay = () => {
             const contract = new Contract(SocialLiteContractAddress,SocialAbi,signer);
           const tx =  await contract.writeComment(_index,_message);
           await tx.wait();
-    
+          setMessage("");
         }catch(error){
             console.log("sende message",error);
         }
@@ -40,6 +40,7 @@ const PostDisplay = () => {
             _data.push(element);
           });
           setdatablock(_data);
+         
         } catch (error) {
           console.log("all info ", error);
         }
@@ -95,7 +96,7 @@ getAllMessage();
               
             ) : (
                 <div className="flex justify-around items-center gap-2">
-<button onClick={() =>{navigate("/comment")} }>
+<button onClick={() =>{navigate("/comment",{ state: {messageId: element.messageIndex} })} }>
 <BiShowAlt/>
               </button>
               <button onClick={() => handleCardClick(element.messageIndex)}>

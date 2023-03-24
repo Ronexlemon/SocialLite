@@ -1,28 +1,58 @@
-import React, { useState } from "react";
+import React, { useState,useContext,useEffect } from "react";
 import {FaComment} from "react-icons/fa"
 import {MdSend} from "react-icons/md"
 import {BiShowAlt} from "react-icons/bi"
+import { SocialAbi } from "../abi/socilaliteabi";
+import { SocialLiteContractAddress } from "../contractAddress/socialContractAddress";
+import { AppContext } from "../../contexts/AppContexts";
+import { useLocation } from "react-router-dom";
 
-const SinglePostComment = () => {
-  const data = [
-    { comments: "ronex the graate person ever", owner: "0x546475673842782462t6174614",id: 0 },
-    { comments: "The economic recession",owner: "0x546475673842782462t6174614",id: 1 },
-    { comments: "one of the best comment keep it up",owner: "0x546475673842782462t6174614",id: 2 },
-    { comments: "all is bad i don't know whats keep happenning but its bad",owner: "0x546475673842782462t6174614",id: 3 },
-  ];
+const SinglePostComment = ({ route }) => {
+     
+    const { state } = useLocation();
+    const messageId = state?.messageId;
+    
+    const {
+        getProviderOrSigner,
+            Contract,
+    } = useContext(AppContext)
+    const [datablock,setdatablock] = useState([]);
+
+
+    const getAllCommentsForApost = async () => {
+        try {
+            // console.log("the index is", _index);
+          let _data = [];
+          const provider = await getProviderOrSigner();
+          const contract = new Contract(SocialLiteContractAddress,SocialAbi,provider);
+          const results = await contract.readComments(messageId);
+    
+          results?.forEach((element) => {
+            _data.push(element);
+          });
+          setdatablock(_data);
+         
+        } catch (error) {
+          console.log("all info ", error);
+        }
+      };
+
+  useEffect(()=>{
+getAllCommentsForApost();
+  },[])
 
   
 
   return (
     <div className="content-center ">
-      {data?.map((element) => (
+      {datablock?.map((element,index) => (
         <div
-          key={element.id}
+          key={index}
           className="rounded-xl h-20 w-3/4 bg-green-200 p-4 m-4 relative"
         >
-            <h3 className="font-bold text-lg">From: {element.owner}</h3>
+            <h3 className="font-bold text-lg">From: {element.commentor}</h3>
           
-          <h3 className="font-bold text-lg">{element.comments}</h3>
+          <h3 className="font-bold text-lg">{element._comment}</h3>
           
          
          
