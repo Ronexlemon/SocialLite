@@ -4,6 +4,8 @@ import {FaComment} from "react-icons/fa"
 import {MdSend} from "react-icons/md"
 import {BiShowAlt} from "react-icons/bi"
 import { SocialAbi } from "../abi/socilaliteabi";
+import {BiUpvote} from "react-icons/bi"
+import {BiDownvote} from "react-icons/bi"
 import { SocialLiteContractAddress } from "../contractAddress/socialContractAddress";
 import { AppContext } from "../../contexts/AppContexts";
 
@@ -26,6 +28,18 @@ const PostDisplay = () => {
           setMessage("");
         }catch(error){
             console.log("sende message",error);
+        }
+    }
+    //upvote and downvote
+    const vote = async (_vote,_index)=>{
+        try{
+            const signer = await getProviderOrSigner(true);
+            const contract = new Contract(SocialLiteContractAddress,SocialAbi,signer);
+            const tx = await contract.upvoteOrdownvote(_vote,_index);
+            await tx.wait();
+
+        }catch(error){
+            console.log("vote error",error);
         }
     }
     
@@ -73,6 +87,14 @@ getAllMessage();
           <h3 className="font-bold text-lg"><span className="text-orange-400">From :</span> {element.owner}</h3>
           
           <p>Description: {element.information}</p>
+          <div className="mt-4 grid grid-cols-2 items-center p-2 gap-4 w-10 ">
+<button onClick={()=>{vote(true,element.messageIndex)}}><BiUpvote/></button>
+<button  onClick={()=>{vote(false,element.messageIndex)}} ><BiDownvote/></button>
+<h3 className="text-green-500">{}</h3>
+<h3 className="text-red-500">{}</h3>
+
+
+          </div>
           {selectedCard === element.messageIndex && (
             <div className="absolute bottom-1 left-1/4 transform -translate-x-1/2">
                <input
