@@ -1,8 +1,9 @@
 import React from "react";
+import PostDisplay from "../components/postDisplay";
 
 const Post = ()=>{
     return(
-        <div></div>
+        <PostDisplay/>
     )
 }
 export default Post;
