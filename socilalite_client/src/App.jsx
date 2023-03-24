@@ -5,6 +5,7 @@ import './App.css'
 import LandPage from './Pages/LandingPage'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Main from './Pages/Main'
+import SinglePostComment from './Pages/SinglePostComment'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<LandPage/>} />
         <Route path="/home" element={<LandPage/>} />
         <Route path="/main" element={<Main/>} />
+        <Route path="/comment" element={<SinglePostComment/>} />
         
       </Routes>
     </Router>

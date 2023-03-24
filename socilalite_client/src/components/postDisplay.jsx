@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {FaComment} from "react-icons/fa"
 import {MdSend} from "react-icons/md"
 import {BiShowAlt} from "react-icons/bi"
 
 const PostDisplay = () => {
+    const navigate = useNavigate();
   const data = [
     { name: "ronex", salary: 200, description: "yollow", id: 0 },
     { name: "ronex", salary: 200, description: "yollow", id: 1 },
@@ -45,7 +47,7 @@ const PostDisplay = () => {
               
             ) : (
                 <div className="flex justify-around items-center gap-2">
-<button onClick={() => handleCardClick(element.id)}>
+<button onClick={() =>{navigate("/comment")} }>
 <BiShowAlt/>
               </button>
               <button onClick={() => handleCardClick(element.id)}>
