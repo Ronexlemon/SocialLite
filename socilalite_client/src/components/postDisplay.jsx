@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {FaComment} from "react-icons/fa"
 import {MdSend} from "react-icons/md"
+import {BiShowAlt} from "react-icons/bi"
 
 const PostDisplay = () => {
   const data = [
@@ -37,13 +38,21 @@ const PostDisplay = () => {
           )}
           <div className="absolute bottom-1 right-0 m-4">
             {selectedCard === element.id ? (
-              <button onClick={() => handleCardClick(element.id)}>
+                <button onClick={() => handleCardClick(element.id)}>
                 <MdSend/>
               </button>
+                
+              
             ) : (
-              <button onClick={() => handleCardClick(element.id)}>
-                <FaComment/>
+                <div className="flex justify-around items-center gap-2">
+<button onClick={() => handleCardClick(element.id)}>
+<BiShowAlt/>
               </button>
+              <button onClick={() => handleCardClick(element.id)}>
+              <FaComment/>
+              </button>
+                </div>
+              
             )}
           </div>
         </div>
