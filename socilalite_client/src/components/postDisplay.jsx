@@ -1,11 +1,37 @@
-import React, { useState } from "react";
+import React, { useState,useContext,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {FaComment} from "react-icons/fa"
 import {MdSend} from "react-icons/md"
 import {BiShowAlt} from "react-icons/bi"
+import { SocialAbi } from "../abi/socilaliteabi";
+import { SocialLiteContractAddress } from "../contractAddress/socialContractAddress";
+import { AppContext } from "../../contexts/AppContexts";
 
 const PostDisplay = () => {
+    const {
+        getProviderOrSigner,
+            Contract,
+    } = useContext(AppContext)
     const navigate = useNavigate();
+    const [datablock,setdatablock] = useState([]);
+    const getAllMessage = async () => {
+        try {
+          let _data = [];
+          const provider = await getProviderOrSigner();
+          const contract = new Contract(SocialLiteContractAddress,SocialAbi,provider);
+          const results = await contract.readmessages();
+    
+          results?.forEach((element) => {
+            _data.push(element);
+          });
+          setdatablock(_data);
+        } catch (error) {
+          console.log("all info ", error);
+        }
+      };
+
+    
+
   const data = [
     { name: "ronex", salary: 200, description: "yollow", id: 0 },
     { name: "ronex", salary: 200, description: "yollow", id: 1 },
@@ -22,17 +48,20 @@ const PostDisplay = () => {
       setSelectedCard(id);
     }
   };
-
+useEffect(()=>{
+getAllMessage();
+},[]);
+{console.log("the typr ",typeof(datablock))}
   return (
     <div className="content-center ">
-      {data?.map((element) => (
+      {datablock?.map((element) => (
         <div
           key={element.id}
           className="rounded-xl h-36 w-3/4 bg-green-200 p-4 m-4 relative"
         >
-          <h3 className="font-bold text-lg">{element.name}</h3>
-          <p>Salary: {element.salary}</p>
-          <p>Description: {element.description}</p>
+          <h3 className="font-bold text-lg"><span className="text-orange-400">From :</span> {element.owner}</h3>
+          
+          <p>Description: {element.information}</p>
           {selectedCard === element.id && (
             <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2">
               <input type="textArea" placeholder="Enter your comment" />
