@@ -1,0 +1,1 @@
+export const SocialLiteContractAddress = "0x25f7188F7b6D09Dd1B1C079eA3a237e6AF9EF263"
