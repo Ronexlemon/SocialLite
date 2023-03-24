@@ -1,11 +1,32 @@
 import React, { useState } from "react";
+import { useContext } from "react";
+import { AppContext } from "../../contexts/AppContexts";
+import { SocialAbi } from "../abi/socilaliteabi";
+import { SocialLiteContractAddress } from "../contractAddress/socialContractAddress";
 
 const PostForm = () => {
   const [message, setMessage] = useState("");
+  const {
+    getProviderOrSigner,
+        Contract,
+} = useContext(AppContext)
+//post message
+const postMessage = async(_message)=>{
+    try{
+        const signer = await getProviderOrSigner(true);
+        const contract = new Contract(SocialLiteContractAddress,SocialAbi,signer);
+      const tx =  await contract.getMessage(_message);
+      await tx.wait();
+
+    }catch(error){
+        console.log("sende message",error);
+    }
+}
 
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(message); // or save the message to your database or do something else with it
+    postMessage(message);
   };
 
   return (
