@@ -11,6 +11,7 @@ import SinglePostComment from './Pages/SinglePostComment'
 import Post from './Pages/Post'
 import TrendingPosts from './Pages/Trending'
 import { AppContext } from '../contexts/AppContexts';
+import Inbox from './Pages/Inbox'
 //import { providerOptions } from "xdcpay-connect";
 
 function App() {
@@ -61,6 +62,7 @@ getProviderOrSigner();
         <Route path="/comment" element={<SinglePostComment/>} />
         <Route path="/post" element={<Post/>} />
         <Route path="/trending" element={<TrendingPosts/>} />
+        <Route path="/inbox" element={<Inbox/>} />
         
       </Routes>
     </Router>
