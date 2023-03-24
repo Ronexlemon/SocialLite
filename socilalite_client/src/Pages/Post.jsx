@@ -1,9 +1,10 @@
 import React from "react";
-import PostDisplay from "../components/postDisplay";
+
+import PostForm from "../components/postForm";
 
 const Post = ()=>{
     return(
-        <PostDisplay/>
+        <PostForm/>
     )
 }
 export default Post;
