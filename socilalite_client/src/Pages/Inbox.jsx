@@ -8,6 +8,7 @@ import { AppContext } from "../../contexts/AppContexts";
 import {providers,Contract} from "ethers"
 import Web3Modal from "web3modal"
 import { SocialLiteContractAddress } from "../contractAddress/socialContractAddress";
+import NavBarDash from "../components/NavbarDashboard";
 
 const Inbox = () => {
     const [userAccount, setUserAccount] = useState();
@@ -95,13 +96,14 @@ const Inbox = () => {
     },[])
 {console.log("the typr ",datablock[0])}
   return (
-    <div className="content-center ">
+    <div className="content-center  bg-black h-full min-h-screen">
+      <NavBarDash/>
         
       {datablock?.map((element) => (
         userAccount == element.owner?(
 <div
           key={element.messageIndex}
-          className="rounded-xl h-36 w-3/4 bg-green-200 p-4 m-4 relative"
+          className=" h-36 w-3/4 bg-black text-white  border-b border-gray-100    p-4 m-4 relative"
         >
           <h3 className="font-bold text-lg"><span className="text-orange-400">From :</span> {element.owner}</h3>
           { console.log("jntjnjt",userAccount)}

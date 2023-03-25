@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { AppContext } from "../../contexts/AppContexts";
 import { SocialAbi } from "../abi/socilaliteabi";
 import { SocialLiteContractAddress } from "../contractAddress/socialContractAddress";
+import NavBarDash from "./NavbarDashboard";
 
 const PostForm = () => {
   const [message, setMessage] = useState("");
@@ -30,7 +31,11 @@ const postMessage = async(_message)=>{
   };
 
   return (
+    <div>
+      <NavBarDash/>
+    
     <div className="flex justify-center items-center h-screen">
+      
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2" htmlFor="message">
@@ -54,6 +59,7 @@ const postMessage = async(_message)=>{
           </button>
         </div>
       </form>
+    </div>
     </div>
   );
 };
