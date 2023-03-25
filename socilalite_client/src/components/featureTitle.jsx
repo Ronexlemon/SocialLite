@@ -8,7 +8,7 @@ const FeatureTitle = () =>{
             
         
             <div>
-                <button   onClick={()=>{navigate("/main")}} className="rounded-xl  h-8 w-28  border border-sky-200  text-sm items-center">Features</button>
+                <span   className=" text-5xl w-52  h-20     font-sans items-center">Features</span>
 
             </div>
 
