@@ -4,7 +4,7 @@ import NavBarLanding from "../NavbarLanding";
 import Description from "../Description";
 const LandingPage = () =>{
     return(
-        <div className="bg-background h-screen w-full ">
+        <div className="bg-black h-full min-h-screen6  w-full ">
             <NavBarLanding/>
             <Description/>
             
