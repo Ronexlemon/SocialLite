@@ -5,6 +5,7 @@ import {FcPositiveDynamic} from "react-icons/fc"
 import { SocialAbi } from "../abi/socilaliteabi";
 import { SocialLiteContractAddress } from "../contractAddress/socialContractAddress";
 import { AppContext } from "../../contexts/AppContexts";
+import NavBarDash from "../components/NavbarDashboard";
 
 const TrendingPosts = () => {
   const [datablock,setdatablock] = useState([]);
@@ -36,9 +37,7 @@ const getAllTrending = async () => {
 
   return (
     <div className="content-center bg-black h-full   min-h-screen ">
-      <div>
-        <button></button>
-      </div>
+      <NavBarDash/>
       {datablock?.map((element) => (
         <div
           key={element.id}
