@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const NavBarDash = () =>{
     const navigate = useNavigate();
     return(
-        <div className="flex bg-slate-400 justify-around items-center  h-15   w-full">
+        <div className="flex bg-black justify-around items-center  h-15  border-b border-gray-100  w-full">
             <div>
                 <button onClick={()=>{navigate("/main")}}>
                     Home
