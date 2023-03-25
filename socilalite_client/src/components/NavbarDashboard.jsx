@@ -1,12 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const NavBarMain = () =>{
+const NavBarDash = () =>{
     const navigate = useNavigate();
     return(
         <div className="flex bg-slate-400 justify-around items-center  h-15   w-full">
             <div>
-                <button onClick={()=>{navigate("/home")}}>
+                <button onClick={()=>{navigate("/main")}}>
                     Home
                 </button>
             </div>
@@ -22,4 +22,4 @@ const NavBarMain = () =>{
 
 }
 
-export default NavBarMain;
+export default NavBarDash;

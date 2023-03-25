@@ -29,7 +29,7 @@ contract SocialLite {
     mapping(uint => Message) public messages;
     mapping(uint => mapping(uint => Comment)) public commentsUnderMessage;
     mapping(uint => Vote) public voting;
-    mapping(address => bool) public hasVote;
+    mapping(uint => mapping(address => bool)) public hasVote;
 
     //getmessage for all
     function getMessage(string calldata _information) public {
@@ -80,7 +80,7 @@ contract SocialLite {
 
     //upvoteand downvote
     function upvoteOrdownvote(bool choice, uint _index) public {
-        require(hasVote[msg.sender] == false, "already voted");
+        require(hasVote[_index][msg.sender] == false, "already voted");
         if (choice == true) {
             _upvote(_index);
         } else {
@@ -91,13 +91,13 @@ contract SocialLite {
     //upvote
     function _upvote(uint _index) private {
         messages[_index].upVote = messages[_index].upVote.add(1);
-        hasVote[msg.sender] = true;
+        hasVote[_index][msg.sender] = true;
     }
 
     //upvote
     function _downvote(uint _index) private {
         messages[_index].downVote = messages[_index].downVote.add(1);
-        hasVote[msg.sender] = true;
+        hasVote[_index][msg.sender] = true;
     }
 
     //return all trending posts

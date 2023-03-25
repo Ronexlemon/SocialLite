@@ -10,13 +10,13 @@ return(
 
   <NavBarMain/>
     
-    <div className="bg-blue-200 h-full min-h-screen grid grid-cols-3 gap-2 ">
+    <div className="bg-black h-full min-h-screen grid grid-cols-3 gap-2 ">
        
         <div>
         <MainLand/>
         </div>
         
-        <div className="items-center  col-span-2  ">
+        <div className="items-start  col-span-2   ">
         <PostDisplay/>
         </div>
        

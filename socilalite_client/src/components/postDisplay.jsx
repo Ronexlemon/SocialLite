@@ -82,23 +82,32 @@ getAllMessage();
       {datablock?.map((element) => (
         <div
           key={element.messageIndex}
-          className="rounded-xl h-36 w-3/4 bg-green-200 p-4 m-4 relative"
+          className="h-36 w-3/4 bg-black text-white p-4 border-b border-gray-100 mb-4 mt-4 relative"
         >
-          <h3 className="font-bold text-lg"><span className="text-orange-400">From :</span> {element.owner}</h3>
+          <h3 className="font-bold text-lg">
+            <span className="text-orange-400">From :</span> {element.owner}</h3>
           
-          <p>Description: {element.information}</p>
-          <div className="mt-4 grid grid-cols-2 items-center p-2 gap-4 w-10 ">
-<button onClick={()=>{vote(true,element.messageIndex)}}><BiUpvote/></button>
-<button  onClick={()=>{vote(false,element.messageIndex)}} ><BiDownvote/></button>
-<h3 className="text-green-500">{}</h3>
-<h3 className="text-red-500">{}</h3>
+          <p className="text-sm">Description: {element.information}</p>
+          <div className="mt-4 grid grid-cols-4 items-center p-2 gap-4 w-3/4">
+          <div className="flex items-center justify-center gap-2 text-sm">
+            <button onClick={() => { vote(true, element.messageIndex) }}>
+              <BiUpvote />
+            </button>
+            <h3 className="text-green-500">{Number(element.upVote)}</h3>
+            <button onClick={() => { vote(false, element.messageIndex) }}>
+              <BiDownvote />
+            </button>
+            <h3 className="text-red-500">{Number(element.downVote)}</h3>
+          </div>
 
 
           </div>
           {selectedCard === element.messageIndex && (
-            <div className="absolute bottom-1 left-1/4 transform -translate-x-1/2">
+            <div  className="relative items-center shadow appearance-none border rounded w-full py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            type="text">
+              
                <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className=" relative items-center  shadow appearance-none border rounded w-full py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             
             type="text"
             placeholder="Enter comment"
@@ -106,6 +115,7 @@ getAllMessage();
             onChange={(event) => setMessage(event.target.value)}
           />
             </div>
+            
           )}
           <div className="absolute bottom-1 right-0 m-4">
             {selectedCard === element.messageIndex ? (
@@ -117,7 +127,7 @@ getAllMessage();
               </button>
               
             ) : (
-                <div className="flex justify-around items-center gap-2">
+                <div className="flex justify-around items-center gap-8">
 <button onClick={() =>{navigate("/comment",{ state: {messageId: element.messageIndex} })} }>
 <BiShowAlt/>
               </button>
