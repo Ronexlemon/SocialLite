@@ -1,7 +1,7 @@
 import React from "react";
 import  world from "../assets/world.png"
 
-const Description = () =>{
+const Feature = () =>{
     return(
         <div className=" grid grid-cols-2 gap-2 bg-black items-center  diplay:block text-white ">
         <div className="flex flex-col  justify-center items-center ">
@@ -29,4 +29,4 @@ const Description = () =>{
 
 }
 
-export default Description;
+export default Feature;
