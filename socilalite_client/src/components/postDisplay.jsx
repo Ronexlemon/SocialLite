@@ -93,11 +93,11 @@ getAllMessage();
             <button onClick={() => { vote(true, element.messageIndex) }}>
               <BiUpvote />
             </button>
-            <h3 className="text-green-500">{0}</h3>
+            <h3 className="text-green-500">{Number(element.upVote)}</h3>
             <button onClick={() => { vote(false, element.messageIndex) }}>
               <BiDownvote />
             </button>
-            <h3 className="text-red-500">{1}</h3>
+            <h3 className="text-red-500">{Number(element.downVote)}</h3>
           </div>
 
 
