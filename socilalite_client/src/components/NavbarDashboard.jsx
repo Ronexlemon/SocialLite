@@ -12,7 +12,7 @@ const NavBarDash = () =>{
             </div>
         
             <div>
-                <button    className="rounded-xl  h-8 w-24  bg-green-700  text-white items-center">Connected</button>
+                <button    className="rounded-xl  h-8 w-24  bg-blue-400  text-white items-center">Connected</button>
 
             </div>
 
