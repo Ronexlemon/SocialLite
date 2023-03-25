@@ -16,7 +16,7 @@ return(
         <MainLand/>
         </div>
         
-        <div className="items-center  col-span-2  ">
+        <div className="items-start  col-span-2   ">
         <PostDisplay/>
         </div>
        
