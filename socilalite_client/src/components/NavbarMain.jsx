@@ -6,9 +6,9 @@ const NavBarMain = () =>{
     return(
         <div className="flex bg-slate-400 justify-around items-center  h-15   w-full">
             <div>
-                <span>
-                    
-                </span>
+                <button onClick={()=>{navigate("/home")}}>
+                    Home
+                </button>
             </div>
         
             <div>
