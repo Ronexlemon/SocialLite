@@ -10,7 +10,7 @@ return(
 
   <NavBarMain/>
     
-    <div className="bg-blue-200 h-full min-h-screen grid grid-cols-3 gap-2 ">
+    <div className="bg-black h-full min-h-screen grid grid-cols-3 gap-2 ">
        
         <div>
         <MainLand/>
