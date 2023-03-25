@@ -4,6 +4,7 @@ import NavBarLanding from "../NavbarLanding";
 import Description from "../Description";
 import Feature from "../features";
 import FeatureTitle from "../featureTitle";
+import FeatureTwo from "../featuretwo";
 const LandingPage = () =>{
     return(
         <div className="bg-black h-full min-h-screen6  w-full ">
@@ -11,6 +12,7 @@ const LandingPage = () =>{
             <Description/>
             <FeatureTitle/>
             <Feature/>
+            <FeatureTwo/>
             
             
         </div>
