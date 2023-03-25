@@ -87,9 +87,9 @@ getAllMessage();
           <h3 className="font-bold text-lg">
             <span className="text-orange-400">From :</span> {element.owner}</h3>
           
-          <p>Description: {element.information}</p>
+          <p className="text-sm">Description: {element.information}</p>
           <div className="mt-4 grid grid-cols-4 items-center p-2 gap-4 w-3/4">
-          <div className="flex items-center justify-center gap-2">
+          <div className="flex items-center justify-center gap-2 text-sm">
             <button onClick={() => { vote(true, element.messageIndex) }}>
               <BiUpvote />
             </button>

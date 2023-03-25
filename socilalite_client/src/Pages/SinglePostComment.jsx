@@ -6,6 +6,7 @@ import { SocialAbi } from "../abi/socilaliteabi";
 import { SocialLiteContractAddress } from "../contractAddress/socialContractAddress";
 import { AppContext } from "../../contexts/AppContexts";
 import { useLocation } from "react-router-dom";
+import NavBarDash from "../components/NavbarDashboard";
 
 const SinglePostComment = ({ route }) => {
      
@@ -44,15 +45,17 @@ getAllCommentsForApost();
   
 
   return (
-    <div className="content-center ">
+    <div className="content-center bg-black h-full  min-h-screen ">
+      <NavBarDash/>
+
       {datablock?.map((element,index) => (
         <div
           key={index}
-          className="rounded-xl h-20 w-3/4 bg-green-200 p-4 m-4 relative"
+          className=" h-20 w-3/4  text-gray-400 border-b border-gray-100 m-4  relative"
         >
-            <h3 className="font-bold text-lg">From: {element.commentor}</h3>
+            <h3 className="font-bold  text-lg"><span className="text-orange-200">From:</span> {element.commentor}</h3>
           
-          <h3 className="font-bold text-lg">{element._comment}</h3>
+          <h3 className="font-bold text-sm">{element._comment}</h3>
           
          
          
